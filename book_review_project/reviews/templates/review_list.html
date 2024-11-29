@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Review List</title>
+</head>
+<body>
+    <h1>Review List</h1>
+    <ul>
+        {% for review in reviews %}
+        <li>{{ review.book.title }}: {{ review.rating }} stars - "{{ review.comment }}"</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'review_create' %}">Add a Review</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ book.title }}</title>
+</head>
+<body>
+    <h1>{{ book.title }}</h1>
+    <p>Author: {{ book.author }}</p>
+    <p>Genre: {{ book.genre }}</p>
+
+    <h2>Reviews</h2>
+    <ul>
+        {% for review in book.reviews.all %}
+        <li>{{ review.rating }} stars: "{{ review.comment }}" ({{ review.created_at }})</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'book_update' book.id %}">Edit Book</a> |
+    <a href="{% url 'book_delete' book.id %}">Delete Book</a>
+</body>
+</html>
